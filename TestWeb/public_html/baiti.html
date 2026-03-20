@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p>Aprēķināt cik daudz informācijas var lejuplādēt</p>
+ <form>
+     
+  <input type="number" id="sekundes"><p>sekundēs,ja interneta ātrums ir 25 Mbps.</p><br><br>
+
+  <input type="radio" name="vieniba" onclick="rekini('KB')"> KB
+  <input type="radio" name="vieniba" onclick="rekini('KiB')"> KiB
+
+  <p id="rezultats"></p>
+</form>
+        
+        <script>
+function rekini(tips) {
+  let sek = document.getElementById("sekundes").value;
+  let rezultats;
+
+  if (tips === "KB") {
+    rezultats = sek * 1000;
+  } else {
+    rezultats = sek * 1024;
+  }
+
+  document.getElementById("rezultats").innerHTML =
+    "Lejupielādēts: " + rezultats;
+}
+
+document.getElementById("sekundes").addEventListener("focus", function() {
+  document.querySelector("form").reset();
+  document.getElementById("rezultats").innerHTML = "";
+});
+</script>
+    </body>
+</html>
